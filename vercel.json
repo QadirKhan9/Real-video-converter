@@ -18,3 +18,4 @@
   // Make Vercel treat the repo as a “monorepo” with a single frontend.
   "rootDirectory": "frontend"
 }
+
