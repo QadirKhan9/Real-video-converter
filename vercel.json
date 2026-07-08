@@ -1,21 +1,29 @@
-﻿{
-  // Tell Vercel that this is a static‑build project (Vite builds to a static bundle)
+{
+  "version": 2,
   "builds": [
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python"
+    },
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        // Vite outputs to rontend/dist
-        "distDir": "frontend/dist"
+        "distDir": "dist"
       }
     }
   ],
-
-  // If you ever need API routes inside the same repo, you could add rewrites here.
-  // For now we just serve the static files.
-  "rewrites": [{ "source": "/(.*)", "destination": "/frontend/" }],
-
-  // Make Vercel treat the repo as a “monorepo” with a single frontend.
-  "rootDirectory": "frontend"
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/main.py"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
+    }
+  ]
 }
-
