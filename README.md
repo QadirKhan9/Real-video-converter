@@ -133,10 +133,10 @@ curl -X POST "http://127.0.0.1:8000/convert-mkv-to-mp4" \
 
 ## ☁️ Free Deployment
 
-### Backend → [Render](https://render.com)
+### Backend → [Hugging face](https://huggingface.co)
 
 1. Push project to GitHub
-2. Go to [render.com](https://render.com) → **New Web Service**
+2. Go to [huggingface.co](https://huggingface.co) → **New Web Service**
 3. Connect your GitHub repo and set:
 
    | Setting        | Value                                          |
